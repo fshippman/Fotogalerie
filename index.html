@@ -15,28 +15,77 @@
             flex-wrap: wrap;
         }
 
+        h1 {
+            text-align: center;
+        }
+
         .imgbox {
-            height: 500px;
+            height: 400px;
             margin: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+
         }
 
         .imgbox img {
             object-fit: cover;
+        }
+
+        .imgbox:hover {
+            box-shadow: 0 0 3px 2px rgba(0, 140, 186, 0.5);
+            opacity: 0.95;
+        }
+
+        .dialog-bg {
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dialog {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: auto;
+            height: 50vh;
+            width: 50vw;
+            background-color: #1f1d2c;
+            /*  border: 1px solid lightgray; */
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+       
+
+        .dialog-exit img {
+            height: 32px;
+            width: 32px;
+        }
+
+        .d-none {
+            display: none;
         }
     </style>
 
 
     <script>
         let images = [
-            'img/1.jpg', 
-            'img/2.jpg', 
-            'img/3.jpg', 
-            'img/4.jpg', 
-            'img/5.jpg', 
-            'img/6.jpg', 
-            'img/7.jpg', 
-            'img/8.jpg', 
-            'img/9.jpg', 
+            'img/1.jpg',
+            'img/2.jpg',
+            'img/3.jpg',
+            'img/4.jpg',
+            'img/5.jpg',
+            'img/6.jpg',
+            'img/7.jpg',
+            'img/8.jpg',
+            'img/9.jpg',
             'img/10.jpg',
             'img/11.jpg',
             'img/12.jpg',
@@ -56,17 +105,33 @@
             for (let i = 0; i < images.length; i++) {
                 document.getElementById('content').innerHTML += `
                 <div onclick="openImage($images[i])">
-                    <img class="imgbox" src="${images[i]}"/>
+                   <img class="imgbox" src="${images[i]}"/>
                 </div>
                  `;
             }
         }
+
+        /* function openImage(){
+
+        } */
 
     </script>
 
 </head>
 
 <body onload="load()">
+
+    
+
+    <H1>Fotogalerie</H1>
     <div id="content" class="imgcontainer"></div>
+
+    <div id="dialog" class="dialog-bg d-none">
+        <div class="dialog">
+          
+          <h1>Ooops!</h1>
+          <p id="dialog-message">Please enter values into the textfields</p>
+        </div>
+      </div>
 
 </body>
