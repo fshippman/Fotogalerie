@@ -5,6 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
 
     <title>Document</title>
 
@@ -19,25 +22,45 @@
             text-align: center;
         }
 
+        body {
+            background-color: #222230;
+            font-family: 'Lato', sans-serif;
+            font-weight: light;
+            color: white;
+        }
+
+        h1 {
+            margin: 32px;
+        }
+
         .imgbox {
-            height: 400px;
+            height: 450px;
+            width: 450px;
             margin: 10px;
             border-radius: 8px;
             cursor: pointer;
-
-        }
-
-        .imgbox img {
             object-fit: cover;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            -webkit-transition: .125s ease-in-out;
+            transition: .125s ease-in-out;
         }
 
         .imgbox:hover {
-            box-shadow: 0 0 3px 2px rgba(0, 140, 186, 0.5);
-            opacity: 0.95;
+            box-shadow: 0 0 3px 2px #706fc8;
+            opacity: 0.9;
+            -webkit-filter: grayscale(0);
+            filter: grayscale(0);
+
+        }
+
+        .imgdetail {
+            border-radius: 8px;
+            max-height: 900px;
         }
 
         .dialog-bg {
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: #222230;
             z-index: 999;
             position: fixed;
             left: 0;
@@ -49,20 +72,6 @@
             align-items: center;
         }
 
-        .dialog {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow: auto;
-            height: 50vh;
-            width: 50vw;
-            background-color: #1f1d2c;
-            /*  border: 1px solid lightgray; */
-            border-radius: 10px;
-            padding: 24px;
-        }
-
-       
 
         .dialog-exit img {
             height: 32px;
@@ -99,21 +108,33 @@
             'img/20.jpg',
             'img/21.jpg',
             'img/22.jpg',
+            'img/23.jpg',
+            'img/24.jpg',
         ];
 
         function load() {
             for (let i = 0; i < images.length; i++) {
                 document.getElementById('content').innerHTML += `
-                <div onclick="openImage($images[i])">
+                <div onclick="openImage('${images[i]}')">
                    <img class="imgbox" src="${images[i]}"/>
                 </div>
                  `;
             }
         }
 
-        /* function openImage(){
+        /* ${images[i]} */
+        function openImage(selectedImage) {
+            document.getElementById('dialog').classList.remove('d-none');
+            document.getElementById('image').src = selectedImage;
 
-        } */
+        }
+        function getId(theId) {
+    return document.getElementById(theId);
+}
+
+        function closeImage() {
+            document.getElementById('dialog').classList.add('d-none');
+        }
 
     </script>
 
@@ -121,17 +142,15 @@
 
 <body onload="load()">
 
-    
+
 
     <H1>Fotogalerie</H1>
     <div id="content" class="imgcontainer"></div>
 
-    <div id="dialog" class="dialog-bg d-none">
+    <div id="dialog" class="dialog-bg d-none" onclick="closeImage()">
         <div class="dialog">
-          
-          <h1>Ooops!</h1>
-          <p id="dialog-message">Please enter values into the textfields</p>
+            <img class="imgdetail" id="image" src="" />
         </div>
-      </div>
+    </div>
 
 </body>
