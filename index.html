@@ -112,29 +112,40 @@
             'img/24.jpg',
         ];
 
+        let counter;
+
         function load() {
             for (let i = 0; i < images.length; i++) {
                 document.getElementById('content').innerHTML += `
-                <div onclick="openImage('${images[i]}')">
+                <div onclick="openImage(${i})">
                    <img class="imgbox" src="${images[i]}"/>
                 </div>
                  `;
             }
         }
 
-        /* ${images[i]} */
-        function openImage(selectedImage) {
-            document.getElementById('imgdetail').classList.remove('d-none');
-            document.getElementById('image').src = selectedImage;
 
+        /* ${images[i]} */
+        function openImage(i) {
+            document.getElementById('imgdetail').classList.remove('d-none');
+            document.getElementById('image').src = images[i];
+            counter = i;
         }
+
+        function pictureRight(){
+            document.getElementById('image').src = images[++counter];
+        }
+        
+
         function getId(theId) {
             return document.getElementById(theId);
         }
 
+
         function closeImage() {
             document.getElementById('imgdetail').classList.add('d-none');
         }
+
 
     </script>
 
@@ -147,7 +158,7 @@
     <H1>Fotogalerie</H1>
     <div id="content" class="imgcontainer"></div>
 
-    <div id="imgdetail" class="imgdetail-bg d-none" onclick="closeImage()">
+    <div id="imgdetail" class="imgdetail-bg d-none" onclick="pictureRight()">
         <img class="imgdetail" id="image" src="" />
     </div>
 
