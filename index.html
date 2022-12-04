@@ -59,7 +59,7 @@
             max-height: 900px;
         }
 
-        .dialog-bg {
+        .imgdetail-bg {
             background-color: #222230;
             z-index: 999;
             position: fixed;
@@ -73,7 +73,7 @@
         }
 
 
-        .dialog-exit img {
+        .imgdetail-exit img {
             height: 32px;
             width: 32px;
         }
@@ -124,16 +124,16 @@
 
         /* ${images[i]} */
         function openImage(selectedImage) {
-            document.getElementById('dialog').classList.remove('d-none');
+            document.getElementById('imgdetail').classList.remove('d-none');
             document.getElementById('image').src = selectedImage;
 
         }
         function getId(theId) {
-    return document.getElementById(theId);
-}
+            return document.getElementById(theId);
+        }
 
         function closeImage() {
-            document.getElementById('dialog').classList.add('d-none');
+            document.getElementById('imgdetail').classList.add('d-none');
         }
 
     </script>
@@ -147,10 +147,8 @@
     <H1>Fotogalerie</H1>
     <div id="content" class="imgcontainer"></div>
 
-    <div id="dialog" class="dialog-bg d-none" onclick="closeImage()">
-        <div class="dialog">
-            <img class="imgdetail" id="image" src="" />
-        </div>
+    <div id="imgdetail" class="imgdetail-bg d-none" onclick="closeImage()">
+        <img class="imgdetail" id="image" src="" />
     </div>
 
 </body>
