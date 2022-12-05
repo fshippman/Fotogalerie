@@ -9,156 +9,18 @@
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
 
-    <title>Document</title>
-
-    <style>
-        .imgcontainer {
-            display: flex;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        body {
-            background-color: #222230;
-            font-family: 'Lato', sans-serif;
-            font-weight: light;
-            color: white;
-        }
-
-        h1 {
-            margin: 32px;
-        }
-
-        .imgbox {
-            height: 450px;
-            width: 450px;
-            margin: 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            object-fit: cover;
-            -webkit-filter: grayscale(100%);
-            filter: grayscale(100%);
-            -webkit-transition: .125s ease-in-out;
-            transition: .125s ease-in-out;
-        }
-
-        .imgbox:hover {
-            box-shadow: 0 0 3px 2px #706fc8;
-            opacity: 0.9;
-            -webkit-filter: grayscale(0);
-            filter: grayscale(0);
-
-        }
-
-        .imgdetail {
-            border-radius: 8px;
-            max-height: 900px;
-        }
-
-        .imgdetail-bg {
-            background-color: #222230;
-            z-index: 999;
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-
-        .imgdetail-exit img {
-            height: 32px;
-            width: 32px;
-        }
-
-        .d-none {
-            display: none;
-        }
-    </style>
-
-
-    <script>
-        let images = [
-            'img/1.jpg',
-            'img/2.jpg',
-            'img/3.jpg',
-            'img/4.jpg',
-            'img/5.jpg',
-            'img/6.jpg',
-            'img/7.jpg',
-            'img/8.jpg',
-            'img/9.jpg',
-            'img/10.jpg',
-            'img/11.jpg',
-            'img/12.jpg',
-            'img/13.jpg',
-            'img/14.jpg',
-            'img/15.jpg',
-            'img/16.jpg',
-            'img/17.jpg',
-            'img/18.jpg',
-            'img/19.jpg',
-            'img/20.jpg',
-            'img/21.jpg',
-            'img/22.jpg',
-            'img/23.jpg',
-            'img/24.jpg',
-        ];
-
-        let counter;
-
-        function load() {
-            for (let i = 0; i < images.length; i++) {
-                document.getElementById('content').innerHTML += `
-                <div onclick="openImage(${i})">
-                   <img class="imgbox" src="${images[i]}"/>
-                </div>
-                 `;
-            }
-        }
-
-
-        /* ${images[i]} */
-        function openImage(i) {
-            document.getElementById('imgdetail').classList.remove('d-none');
-            document.getElementById('image').src = images[i];
-            counter = i;
-        }
-
-        function pictureRight(){
-            document.getElementById('image').src = images[++counter];
-        }
-        
-
-        function getId(theId) {
-            return document.getElementById(theId);
-        }
-
-
-        function closeImage() {
-            document.getElementById('imgdetail').classList.add('d-none');
-        }
-
-
-    </script>
+    <title>Fotogalerie</title> 
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body onload="load()">
 
-
-
     <H1>Fotogalerie</H1>
     <div id="content" class="imgcontainer"></div>
 
-    <div id="imgdetail" class="imgdetail-bg d-none" onclick="pictureRight()">
+    <div id="imgdetail" class="imgdetail-bg d-none" onclick="closeImage()">
         <img class="imgdetail" id="image" src="" />
     </div>
 
