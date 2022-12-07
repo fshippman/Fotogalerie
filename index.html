@@ -20,8 +20,18 @@
     <H1>Fotogalerie</H1>
     <div id="content" class="imgcontainer"></div>
 
-    <div id="imgdetail" class="imgdetail-bg d-none" onclick="closeImage()">
-        <img class="imgdetail" id="image" src="" />
-    </div>
+    <div id="imgdetail" class="imgdetail-bg d-none">
+        
+        <div class="imgdetail-container">
+            <img class="imgdetail" id="image" src="" />
+        </div>
 
+        <div class="buttons">
+            <a href="#" onclick="pictureLeft()"><img src="img/arrow-left.png"></a> 
+            <a href="#" onclick="closeImage()"><img src="img/close.png"></a>
+            <a href="#" onclick="pictureRight()"><img src="img/arrow-right.png"></a>
+        </div>
+        
+    </div>
+ 
 </body>

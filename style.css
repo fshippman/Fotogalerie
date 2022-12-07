@@ -44,7 +44,10 @@ h1 {
     border-radius: 8px;
     max-height: 900px;
 }
-
+.imgdetail-container {
+    height: 1000px;
+    width: 100vw;
+}
 .imgdetail-bg {
     background-color: #222230;
     z-index: 999;
@@ -56,9 +59,18 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.buttons {
+    display: flex;
+    gap: 150px;
+    margin-top: 64px;
 }
 
-
+.buttons img {
+   height: 50px;
+   width: 50px;
+}
 .imgdetail-exit img {
     height: 32px;
     width: 32px;
