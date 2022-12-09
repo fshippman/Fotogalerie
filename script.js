@@ -53,6 +53,7 @@ function setImageSrc() {
 function openImage(i) {
     counter = i;
     getId('imgdetail').classList.remove('d-none');
+    getId('content').classList.add('disable-scrolling');
     setImageSrc();
 }
 
@@ -81,4 +82,5 @@ function pictureLeft() {
 
 function closeImage() {
     getId('imgdetail').classList.add('d-none');
+    getId('content').classList.remove('disable-scrolling');
 }
